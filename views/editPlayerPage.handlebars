@@ -1,0 +1,311 @@
+<style>
+    .img_settings{
+        position: relative;
+        width:250px;
+        height:250px;
+        margin-top: 10px;
+        margin-left:200px;
+    }
+    .container{
+        width: 700px;
+    }
+    .input_group_settings{
+        width:225px;
+        position: relative;
+        margin-left: 0px;
+    }
+    .alert_i{
+        display:none;
+        margin-left: 135px;
+        color: red;
+    }
+    .zoom_input_settings{
+        position: relative;
+        margin-left: 20px;
+        color: #2E64FE;
+        margin-left: 100px;
+    }
+</style>
+<div ng-app="myApp">
+<div class="container">
+    <div class="card">
+        <img src="/images/{{player.photo_url}}" class="card-img-top img_settings">
+        <div class="card-block">
+            <form action="/home/{{player.name}}/editPage" method="post">
+                <tr>
+                    <td><input type="hidden" value="{{old_team}}" name="old_team" id="old_team"></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" value="{{player.name}}" name="original_name"></td>
+                </tr>
+                <div class="form-group form-inline">
+                    <label for="3-3" class=" col-lg-2 col-form-label col-form-label-md">age:</label>
+                    <input id="3-3" type="number" value="{{player.age}}" class="form-control form-control-sm col-lg-9" name="modify_age" ng-model="modify_age">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        age can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_1">//modify_age//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-4" class=" col-lg-2 col-form-label col-form-label-md">name:</label>
+                    <input id="3-4" type="text" value="{{player.name}}" class="form-control form-control-sm col-lg-9" name="modify_name" ng-model="modify_name">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        name can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_2">//modify_name//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-5" class=" col-lg-2 col-form-label col-form-label-md">weight:</label>
+                    <input id="3-5" type="number" value="{{player.weight}}" class="form-control form-control-sm col-lg-9" name="modify_weight" ng-model="modify_weight">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        weight can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_3">//modify_weight//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-6" class=" col-lg-2 col-form-label col-form-label-md">height:</label>
+                    <input id="3-6" type="number" value="{{player.height}}" class="form-control form-control-sm col-lg-9" name="modify_height" ng-model="modify_height">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        height can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_4">//modify_height//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-7" class=" col-lg-2 col-form-label col-form-label-md">defence:</label>
+                    <input id="3-7" type="number" value="{{player.defence}}" class="form-control form-control-sm col-lg-9" name="modify_defence" ng-model="modify_defence">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        defence can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_5">//modify_defence//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-8" class=" col-lg-2 col-form-label col-form-label-md">strike:</label>
+                    <input id="3-8" type="number" value="{{player.strike}}" class="form-control form-control-sm col-lg-9" name="modify_strike" ng-model="modify_strike">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        strike can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_6">//modify_strike//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-9" class=" col-lg-2 col-form-label col-form-label-md">nationality:</label>
+                    <input id="3-9" type="text" value="{{player.nationality}}" class="form-control form-control-sm col-lg-9" name="modify_nationality" ng-model="modify_nationality">
+                    <span class="success_i" style="display:none"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                    <span class="alert_i" id="11"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        nationality can not be null!
+                    </span>
+                    <h1 class="zoom_input_settings" id="angular_blur_7">//modify_nationality//</h1>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-10" class=" col-lg-2 col-form-label col-form-label-md">photo_url:</label>
+                    <input id="3-10" type="text" value="{{player.photo_url}}" class="form-control form-control-sm col-lg-1" name="modify_photo_url">
+                    <div class="input-group">
+                        <span class="input-group-btn input_group_settings">
+                            <button id="img_btn" class="btn btn-info btn-sm btn-file">
+                                Browse <input type="file" id="imgInp">
+                            </button>
+                        </span>
+                        <input type="text" class="form-control" readonly id="file_name_input">
+                        <input type="hidden" name="file_url_needToBeSent" id="file_url_needToBeSent">
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="3-11" class=" col-lg-2 col-form-label col-form-label-md">team:</label>
+                    <select id="3-11" type="text" value="{{player.team}}" name="modify_team" class="form-control">
+                        {{#each all_teams}}
+                            <option>{{this.name}}</option>  
+                        {{/each}}
+                        </select>
+                </div>
+                <hr />
+                <button type="submit" value="submit" name="action" class="btn btn-sm btn-success">
+                    <i class="fa fa-check" aria-hidden="true"></i>submit</button>
+                <button type="button" value="cancel" id="cancel_btn" class="btn btn-sm btn-warning">
+                    <i class="fa fa-undo" aria-hidden="true"></i> cancel</button>
+                <button type="submit" value="delete" name="action" class="btn btn-sm btn-danger">
+                    <i class="fa fa-trash" aria-hidden="true"></i> delete</button>
+                <button type="button" class="btn btn-sm btn-info" id="reset_btn">
+                    <i class="fa fa-refresh" aria-hidden="true"></i> reset</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<!--<form action="/home/{{player.name}}/editPage" method="post">
+    <tr>
+        <td><input id="3-1" type="hidden" value="{{old_team}}" name="old_team" id="old_team"></td>
+    </tr>
+    <tr>
+        <td><input id="3-2" type="hidden" value="{{player.name}}" name="original_name"></td>
+    </tr>
+    <tr>
+        <td>age:<input id="3-3" type="text" value="{{player.age}}" name="modify_age"></td>
+    </tr>
+    <tr>
+        <td>name:<input id="3-4" type="text" value="{{player.name}}" name="modify_name"></td>
+    </tr>
+    <tr>
+        <td>weight:<input id="3-5" type="text" value="{{player.weight}}" name="modify_weight"></td>
+    </tr>
+    <tr>
+        <td>height:<input id="3-6" type="text" value="{{player.height}}" name="modify_height"></td>
+    </tr>
+    <tr>
+        <td>defence:<input id="3-7" type="text" value="{{player.defence}}" name="modify_defence"></td>
+    </tr>
+    <tr>
+        <td>strike:<input id="3-8"type="text" value="{{player.strike}}" name="modify_strike"></td>
+    </tr>
+    <tr>
+        <td>nationality:<input id="3-9" type="text" value="{{player.nationality}}" name="modify_nationality"></td>
+    </tr>
+    <tr>
+        <td>team:<select type="text" value="{{player.team}}" name="modify_team">
+                {{#each all_teams}}
+                <option>{{this.name}}</option>  
+                {{/each}}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>photo_url:<input type="text" value="{{player.photo_url}}" name="modify_photo_url"></td>
+    </tr>
+    <div class="input-group">
+            <span class="input-group-btn">
+                <button id="img_btn" class="btn btn-info btn-sm btn-file">
+                    Browse <input type="file" id="imgInp">
+                </button>
+            </span>
+            <input type="text" class="form-control" readonly id="file_name_input">
+            <input type="hidden" name="file_url_needToBeSent" id="file_url_needToBeSent">
+        </div>
+
+    <input type="submit" value="submit" name="action">
+    <input type="submit" value="delete" name="action">
+</form>-->
+<button class="btn btn-danger btn-sm" id="back_btn">
+    <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</button>
+
+<script>
+    $("#cancel_btn").click(function(){
+        console.log("the cancel btn has been clicked!");
+        window.location.href="/home";   
+    });
+    $("#reset_btn").click(function(){
+        $("#3-3").val("");
+        $("#3-4").val("");
+        $("#3-5").val("");
+        $("#3-6").val("");
+        $("#3-7").val("");
+        $("#3-8").val("");
+        $("#3-9").val("");
+        $(".success_i").hide();
+        $(".alert_i").hide();
+    });
+
+
+    $("#back_btn").click(function(){
+        var old_team = $("#old_team").val();
+        window.location.href = "/home/"+old_team+"/playerList";
+    });
+
+    $(document).ready( function() {
+        $("#3-3").focus();
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+                console.log("file_name_input  "+$("#file_name_input").val());
+                    console.log("imgInp  "+$("#imgInp").val());
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+            console.log("file_name_input  "+$("#file_name_input").val());//相对路径！
+            var zcc = $("#imgInp").val();
+            zcc = zcc.replace(/\\/g, '/').replace(/.*\//, '');
+
+            var url_file = $("#file_name_input").val();
+            // console.log(typeof(zcc));//string
+            $("#file_url_needToBeSent").val(zcc);
+            
+            console.log("zcc is: "+zcc);
+            console.log("now we have:"+$("#file_url_needToBeSent").val());
+            console.log("imgInp  "+$("#imgInp").val());//绝对路径！
+		}); 
+
+        //validate input!
+    $(".form-control-sm").blur(function(){
+        if($(this).val() == ""){
+            $(this).siblings("span.alert_i").show();
+            //$("#11").show();
+        }else{
+            $(this).siblings("span.success_i").show();
+        }
+    });
+    $(".form-control-sm").focus(function(){
+        if($(this).val() != null){
+            $(this).siblings("span.alert_i").hide();
+        }
+    });	
+	});
+
+    //angular script
+    var myApp = angular.module('myApp', []);
+    myApp.config(function($interpolateProvider) {
+        $interpolateProvider.startSymbol('//');
+        $interpolateProvider.endSymbol('//');
+    });
+
+    $("#3-3").blur(function(){
+        $("#angular_blur_1").html("");
+    });
+    $("#3-4").blur(function(){
+        $("#angular_blur_2").html("");
+    });
+    $("#3-5").blur(function(){
+        $("#angular_blur_3").html("");
+    });
+    $("#3-6").blur(function(){
+       $("#angular_blur_4").html(""); 
+    });
+    $("#3-7").blur(function(){
+        $("#angular_blur_5").html("");
+    });
+    $("#3-8").blur(function(){
+        $("#angular_blur_6").html("");
+    });
+    $("#3-9").blur(function(){
+        $("#angular_blur_7").html("");
+    });
+</script>

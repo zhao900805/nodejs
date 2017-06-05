@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+	<title>CS602</title>
+    <script src="/javascripts/jquery-3.1.1.slim.min.js" type="text/javascript"></script>
+	<!--<link rel="stylesheet" href="/stylesheets/bootstrap.css"></script>-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="/javascripts/clickActions.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<link rel="stylesheet" href="/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--<link rel="text/javascript" href="/javascripts/angular.js">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+</head>
+<style>
+	#main_img_settings{
+		width: 30px;
+		height: 30px;
+	}
+	#main_span_settings{
+		padding-left: 0px;
+	}
+</style>
+<body>
+<header>
+	<div class="row">
+	    <div class="col-lg-6 col-md-6 col-sm-12">
+			<h1 class="text-center"></h1>
+	    </div>
+	    <div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="row">
+				<div class="col-lg-6 col-md col-sm-12">
+		       		<ul class="nav nav-pills nav-tabs">
+            			<li class="nav-item">
+                			<a class="nav-link btn " href="#">Home</a>
+  						</li>
+  						<li class="nav-item">
+    						<a class="nav-link btn" href="#">User</a>
+  						</li>
+					</ul>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+  						<span id="main_span_settings"><img src="" alt="user_img" id="main_img_settings">{{post.name}}
+			    			<a href="#" type="button" class="btn btn-sm btn-success" id="new_Account_btn">new account</a>
+							<a href="#" type="button" class="btn btn-sm btn-danger" id="log_off_btn">log off</a>
+						</span>
+				</div>
+					
+				</div>
+	</div>
+	</div>
+</header>
+    <center><b>title</b></center><br /><br />
+	<div ng-app="myApp">
+        <p>Name : <input type="text" ng-model="name"></p>
+        <h1>Hello //name//</h1>
+		<input type="text" ng-model = "try">
+		<h1>//try//</h1>
+    </div>
+
+</body><hr />
+<footer>
+        <p><center>&copy; Juejiangdeshagou 2017</center></p>
+</footer>
+</html>
+<script>
+	$("#log_off_btn").click(function(){
+        console.log("logoff btn is clicked!");
+        window.location.href = "/user";
+    });
+	$("#new_Account_btn").click(function(){
+		window.location.href="/user";
+	});
+
+    //angular script
+    var myApp = angular.module('myApp', []);
+
+    myApp.config(function($interpolateProvider) {
+        $interpolateProvider.startSymbol('//');
+        $interpolateProvider.endSymbol('//');
+    });
+    customInterpolationApp.controller('DemoController', function() {
+      this.label = "This binding is brought you by // interpolation symbols.";
+    });
+
+</script>
+
+

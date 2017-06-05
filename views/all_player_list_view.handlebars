@@ -1,0 +1,78 @@
+<style>
+    .img_settings{
+        width: 60px;
+        height: 60px;
+    }
+    .find_similar_settings{
+        position: relative;
+        margin-top:-37px;
+    }
+</style>
+<div class="container">
+    <!--<form action="/all_player_list" method="post">-->
+    {{#each players}}
+    <form action="/all_player_list" method="post">
+    <div class="card card-outline-info mb-3">
+    <div class="input-group">
+        <img src="/images/{{this.photo_url}}" alt="" class="img_settings">
+        <span class="input-group-addon">
+            <input class="input_list" type="checkbox" aria-label="Checkbox for following text input" name="selected_name" value="{{this.name}}">
+        </span>
+        <input type="text" class="form-control input_settings" aria-label="Text input with checkbox"
+            value="name:{{this.name}},team:{{this.team}},age:{{this.age}},height:{{this.height}},weight:{{this.weight}},strike:{{this.strike}},defence:{{this.defence}},nationality:{{this.nationality}}"
+        >
+        <div class="btn-group" role="group">
+        <a href="/home/{{this.name}}/editPage/{{this.team}}"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a>
+            <input type="hidden" name="target_strike" value="{{this.strike}}">
+            <input type="hidden" name="target_age" value="{{this.age}}">
+            <input type="hidden" name="target_defence" value="{{this.defence}}">
+            <input type="hidden" name="target_weight" value="{{this.weight}}">
+            <input type="hidden" name="target_height" value="{{this.height}}">
+            <button type="submit" class="btn-link btn find_similar_settings" name="action" value="similar_find_btn">
+                <i class="fa fa-code-fork" aria-hidden="true"></i>similar</button>
+        </div>
+    </div>
+    </div>
+    </form>
+    {{/each}}
+    <br />
+    <form action="/all_player_list" method="post">
+    <button  class="btn btn-sm btn-danger" type="submit" name="action" value="delete">delete</button>
+    <button type="button" class="btn btn-sm btn-info" id="cancel_btn">cancel</button>
+    <button type="button" class="btn btn-sm btn-primary" id="select_all_btn">select_all</button>
+    </form>
+    <!--</form>-->
+    <hr />
+    {{#if similar_players}}
+    <div class="row">
+        <h3 style="position: relative;margin-left: 13px">Similar players:</h3>
+        <a href="/all_player_list" style="position: relative;margin-left: 10px;margin-top: 8px"><i class="fa fa-undo" aria-hidden="true"></i>cancel</a>
+    </div>
+        <br />
+    {{/if}}
+    {{#each similar_players}}
+    <div class="container">
+        <div class="card card-outline-primary mb-3">
+            <div class="input-group">
+                <img src="/images/{{this.photo_url}}" alt="" class="img_settings">
+                <input type="text" class="form-control input_settings" aria-label="Text input with checkbox"
+                    value="name:{{this.name}},team:{{this.team}},age:{{this.age}},height:{{this.height}},weight:{{this.weight}},strike:{{this.strike}},defence:{{this.defence}},nationality:{{this.nationality}}"
+                >
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+<br/>
+<button class="btn btn-sm btn-danger" id="back_btn" onclick="window.location.href= '/home'">
+    <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</button>
+
+<script>
+    $("#cancel_btn").click(function(){
+        $(".input_list").prop("checked",false);
+    });
+    $("#select_all_btn").click(function(){
+        $(".input_list").prop("checked",true);
+    });
+</script>
